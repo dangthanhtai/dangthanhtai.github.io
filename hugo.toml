@@ -22,7 +22,7 @@ buildExpired = false
 [params]
   env = "production"
   title = "Kỹ sư Nhúng"
-  description = "Blog chia sẻ về Embedded System, STM32 và Robotics"
+  description = "This blog share about knowlege, experrience and project of embedded and automotive"
   author = "Dang Thanh Tai"
   
   # Mặc định Dark Mode (Nhìn cho dịu mắt)
@@ -42,7 +42,8 @@ buildExpired = false
   [params.homeInfoParams]
     imageUrl = "/images/profile.jpg"
     imageTitle = "Ảnh profile của Tài"
-    Title = "Hi, mình là Tài"
+    Title = "タイの備忘録
+    ごゆっくりどうぞ
     Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
 
   # Các icon mạng xã hội (Sửa link thành link thật của bạn)
