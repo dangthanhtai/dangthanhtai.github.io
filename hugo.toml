@@ -1,8 +1,73 @@
 baseURL = 'https://dangthanhtai.github.io/'
 languageCode = 'vi'
-title = 'My Engineering Blog'
+title = 'Embedded Engineer'
 theme = 'PaperMod'
 
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Cấu hình màu sắc Code (Màu kiểu Monokai cho dân code)
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    noClasses = false
+    style = 'monokai'
+
+# Cấu hình các tính năng giao diện
 [params]
-    defaultTheme = "auto" # Tự động sáng/tối theo máy người dùng
-    ShowCodeCopyButtons = true
+  env = "production"
+  title = "Kỹ sư Nhúng"
+  description = "Blog chia sẻ về Embedded System, STM32 và Robotics"
+  author = "Dang Thanh Tai"
+  
+  # Mặc định Dark Mode (Nhìn cho dịu mắt)
+  defaultTheme = "dark" 
+  
+  # Hiển thị nút Share bài viết
+  ShowShareButtons = true
+  
+  # Hiển thị thanh đường dẫn (Breadcrumbs)
+  ShowBreadCrumbs = true
+  
+  # Hiển thị mục lục bài viết (Table of Contents)
+  ShowToc = true
+  TocOpen = true
+
+  # Cấu hình Profile ở trang chủ
+  [params.homeInfoParams]
+    Title = "Hi, mình là Tài 👋"
+    Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
+
+  # Các icon mạng xã hội (Sửa link thành link thật của bạn)
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/dangthanhtai"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/dangthanhtai"
+  [[params.socialIcons]]
+    name = "facebook"
+    url = "https://facebook.com/dangthanhtai"
+
+# Menu điều hướng trên đầu trang
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Bài viết"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "archives"
+    name = "Lưu trữ"
+    url = "/archives/"
+    weight = 20
+  [[menu.main]]
+    identifier = "search"
+    name = "Tìm kiếm"
+    url = "/search/"
+    weight = 30
