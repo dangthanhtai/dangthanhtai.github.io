@@ -1,0 +1,49 @@
+/* 1. Nhập Font chữ xịn từ Google */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
+
+/* 2. Ép dùng Font mới */
+:root {
+    --font-family: 'Inter', sans-serif; /* Font cho nội dung thường */
+    --header-font: 'Lora', serif;       /* Font cho tiêu đề (nhìn rất nghệ) */
+    
+    /* 3. Đổi màu chủ đạo (Accent Color) */
+    /* Đây là màu Nâu Đất (giống Kira). Bạn có thể đổi mã hex khác nếu thích */
+    --primary: #8b5a2b; 
+    --secondary: #8b5a2b;
+}
+
+/* Áp dụng font cho tiêu đề bài viết */
+h1, h2, h3, h4, h5, h6, .site-title, .entry-title {
+    font-family: var(--header-font);
+    font-weight: 600;
+}
+
+/* Tinh chỉnh lại bố cục cho thoáng hơn */
+.main {
+    max-width: 800px; /* Thu hẹp chiều ngang để mắt dễ đọc hơn */
+    margin: auto;
+}
+
+/* Làm đẹp cho phần Profile ở trang chủ */
+.first-entry {
+    background: none !important; /* Bỏ khung viền mặc định */
+    text-align: center; /* Căn giữa như poster */
+}
+
+.entry-header h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Hiệu ứng đường gạch chân mờ ảo khi di chuột vào link */
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .3s;
+}
+a:hover {
+    background-size: 100% 1px;
+}
