@@ -1,0 +1,8 @@
+baseURL = 'https://username.github.io/'
+languageCode = 'vi'
+title = 'My Engineering Blog'
+theme = 'PaperMod'
+
+[params]
+    defaultTheme = "auto" # Tự động sáng/tối theo máy người dùng
+    ShowCodeCopyButtons = true
