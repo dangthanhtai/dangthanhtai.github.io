@@ -47,3 +47,20 @@ a {
 a:hover {
     background-size: 100% 1px;
 }
+/* Tùy chỉnh ảnh đại diện (Profile Image) */
+.first-entry .entry-header img {
+    border-radius: 50%; /* Bo tròn ảnh 100% */
+    width: 150px;       /* Kích thước ảnh (Bạn có thể tăng giảm tùy ý) */
+    height: 150px;      /* Giữ chiều cao bằng chiều rộng để ảnh tròn đều */
+    object-fit: cover;  /* Đảm bảo ảnh không bị méo nếu ảnh gốc không vuông */
+    margin-bottom: 20px; /* Tạo khoảng cách với tiêu đề bên dưới */
+    border: 3px solid var(--primary); /* Thêm viền mỏng màu nâu cho nổi bật */
+}
+
+/* Căn giữa toàn bộ khối profile */
+.first-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}

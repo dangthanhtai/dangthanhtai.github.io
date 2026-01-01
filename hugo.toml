@@ -26,7 +26,7 @@ buildExpired = false
   author = "Dang Thanh Tai"
   
   # Mặc định Dark Mode (Nhìn cho dịu mắt)
-  defaultTheme = "dark" 
+  defaultTheme = "light" 
   
   # Hiển thị nút Share bài viết
   ShowShareButtons = true
@@ -40,6 +40,8 @@ buildExpired = false
 
   # Cấu hình Profile ở trang chủ
   [params.homeInfoParams]
+    imageUrl = "/images/profile.jpg"
+    imageTitle = "Ảnh profile của Tài"
     Title = "Hi, mình là Tài 👋"
     Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
 
