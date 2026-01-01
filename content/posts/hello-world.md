@@ -1,6 +1,6 @@
 ---
 title: "Chào thế giới! Tôi là Kỹ sư Nhúng"
-date: 2026-01-01T00:00:00+07:00
+date: 2025-01-01T00:00:00+07:00
 draft: false
 ---
 
