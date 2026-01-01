@@ -42,7 +42,7 @@ buildExpired = false
   [params.homeInfoParams]
     imageUrl = "/images/profile.jpg"
     imageTitle = "Ảnh profile của Tài"
-    Title = "Hi, mình là Tài 👋"
+    Title = "Hi, mình là Tài"
     Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
 
   # Các icon mạng xã hội (Sửa link thành link thật của bạn)
