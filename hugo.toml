@@ -8,7 +8,7 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Cấu hình màu sắc Code (Màu kiểu Monokai cho dân code)
+# Cấu hình màu sắc Code (Monokai là chuẩn bài cho dân code rồi!)
 [markup]
   [markup.highlight]
     anchorLineNos = false
@@ -22,19 +22,12 @@ buildExpired = false
 [params]
   env = "production"
   title = "Kỹ sư Nhúng"
-  description = "This blog share about knowlege, experrience and project of embedded and automotive"
+  description = "This blog shares knowledge, experience and projects of embedded and automotive" # Sửa lỗi typo: experrience -> experience
   author = "Dang Thanh Tai"
   
-  # Mặc định Dark Mode (Nhìn cho dịu mắt)
   defaultTheme = "light" 
-  
-  # Hiển thị nút Share bài viết
   ShowShareButtons = true
-  
-  # Hiển thị thanh đường dẫn (Breadcrumbs)
   ShowBreadCrumbs = true
-  
-  # Hiển thị mục lục bài viết (Table of Contents)
   ShowToc = true
   TocOpen = true
 
@@ -42,10 +35,11 @@ buildExpired = false
   [params.homeInfoParams]
     imageUrl = "/images/profile.jpg"
     imageTitle = "Ảnh profile của Tài"
-    Title = "タイの備忘録 \n ごゆっくりどうぞ"
+    # Dùng \n để xuống dòng, nhìn rất thơ
+    Title = "タイの備忘録 \n ごゆっくりどうぞ" 
     Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
 
-  # Các icon mạng xã hội (Sửa link thành link thật của bạn)
+  # Các icon mạng xã hội
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/dangthanhtai"
@@ -56,20 +50,33 @@ buildExpired = false
     name = "facebook"
     url = "https://facebook.com/dangthanhtai"
 
-# Menu điều hướng trên đầu trang
+# --- PHẦN MENU ĐÃ ĐƯỢC GỘP VÀ SẮP XẾP LẠI ---
 [menu]
+  # 1. Các bộ lọc ngôn ngữ (Ưu tiên hiển thị trước)
   [[menu.main]]
-    identifier = "posts"
-    name = "Bài viết"
-    url = "/posts/"
+    name = "Tiếng Việt 🇻🇳"
+    url = "/categories/vietnamese/"
     weight = 10
+
+  [[menu.main]]
+    name = "English 🇬🇧"
+    url = "/categories/english/"
+    weight = 20
+
+  [[menu.main]]
+    name = "日本語 🇯🇵"
+    url = "/categories/japanese/"
+    weight = 30
+
+  # 2. Các mục chức năng (Hiển thị sau)
   [[menu.main]]
     identifier = "archives"
     name = "Lưu trữ"
     url = "/archives/"
-    weight = 20
+    weight = 40
+  
   [[menu.main]]
     identifier = "search"
-    name = "Tìm kiếm"
+    name = "Tìm kiếm" # PaperMod cần tạo file search.md để dùng cái này
     url = "/search/"
-    weight = 30
+    weight = 50
