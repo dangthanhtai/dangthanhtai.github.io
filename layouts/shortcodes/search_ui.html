@@ -1,0 +1,172 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Yuji+Syuku&display=swap');
+</style>
+
+<div class="art-header">
+    <div class="ink-container">
+        <div class="jp-ink">検索</div>
+        <div class="en-glass">
+            <span>ARCHIVE SEARCH</span>
+        </div>
+    </div>
+</div>
+
+<div class="search-dashboard">
+    <div class="suggestions-box">
+        <div class="tags-cloud">
+            <a href="/tags/stm32/" class="tag-pill">STM32</a>
+            <a href="/tags/embedded/" class="tag-pill">Embedded</a>
+            <a href="/tags/robot/" class="tag-pill">Mobile Robot</a>
+            <a href="/tags/japanese/" class="tag-pill">Nihongo</a>
+            <a href="/tags/linux/" class="tag-pill">Linux</a>
+        </div>
+    </div>
+
+    <div class="quick-links">
+        <a href="/categories/projects/" class="link-card">
+            <h3>Dự án</h3>
+            <p>Xem các đồ án xe tự hành</p>
+        </a>
+        <a href="/categories/notes/" class="link-card">
+            <h3>Ghi chép</h3>
+            <p>Nhật ký học tập hàng ngày</p>
+        </a>
+    </div>
+</div>
+
+<style>
+    /* --- SẮP XẾP VỊ TRÍ (FLEXBOX) --- */
+    main { display: flex !important; flex-direction: column !important; }
+    .post-content { display: contents !important; }
+
+    /* --- 1. HEADER --- */
+    .art-header {
+        order: 1 !important;
+        position: relative;
+        text-align: center;
+        height: 120px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px; 
+        padding-top: 20px;
+        z-index: 1;
+    }
+
+    .ink-container {
+        position: relative; width: 100%; display: flex; justify-content: center; align-items: center;
+    }
+
+    /* CHỮ NHẬT: ĐẬM HƠN XÍU */
+    .jp-ink {
+        font-family: 'Yuji Syuku', serif;
+        font-size: 5.5rem; /* Giữ nguyên size nhỏ vừa chỉnh */
+        color: var(--primary);
+        
+        /* TĂNG ĐỘ ĐẬM: Từ 0.15 lên 0.25 cho rõ nét hơn */
+        opacity: 0.25; 
+        
+        position: absolute;
+        top: 50%; left: 50%; transform: translate(-50%, -50%);
+        white-space: nowrap; pointer-events: none; user-select: none;
+        filter: contrast(120%);
+    }
+
+    /* THANH KÍNH: NHỎ LẠI CHO CÂN ĐỐI */
+    .en-glass {
+        position: relative; z-index: 10;
+        backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+        background: rgba(255, 255, 255, 0.05);
+        
+        /* GIẢM PADDING: Để thanh kính ngắn và mảnh hơn */
+        padding: 6px 40px; 
+        
+        border-top: 1px solid rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        
+        /* Điều chỉnh lại vị trí lệch tâm cho size mới */
+        margin-top: 12px; 
+    }
+
+    /* CHỮ LATIN: GIẢM SIZE */
+    .en-glass span {
+        font-family: 'Italiana', serif; 
+        
+        /* GIẢM FONT SIZE: Xuống 0.8rem cho nhỏ xinh */
+        font-size: 0.8rem; 
+        /* ĐIỀU CHỈNH KHOẢNG CÁCH CHỮ: Cho phù hợp size nhỏ */
+        letter-spacing: 0.5em;
+        
+        color: var(--primary); font-weight: 600; text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    /* --- 2. THANH TÌM KIẾM --- */
+    #searchbox {
+        order: 2 !important;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 50px auto !important;
+        position: relative;
+        z-index: 20;
+    }
+
+    /* --- 3. DASHBOARD --- */
+    .search-dashboard {
+        order: 3 !important;
+        max-width: 800px; margin: 0 auto;
+        background: transparent !important; border: none !important; box-shadow: none !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        width: 100%;
+    }
+
+    /* --- CÁC STYLE CŨ (GIỮ NGUYÊN) --- */
+    .page-header { display: none !important; }
+
+    #searchInput {
+        text-align: center !important; caret-color: var(--primary) !important;
+        border-radius: 50px !important; padding: 16px 24px !important; 
+        background: var(--entry) !important; 
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; 
+        font-size: 1.05rem !important; color: var(--primary) !important;
+        transition: all 0.3s ease !important; width: 100%; display: block;
+    }
+    #searchInput:focus {
+        text-align: left !important; padding-left: 30px !important;
+        outline: none !important; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important; 
+        transform: translateY(-2px);
+    }
+
+    .suggestions-box { margin-bottom: 50px; text-align: center; }
+    .tags-cloud { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .tag-pill {
+        background: var(--entry); border: 1px solid rgba(0, 0, 0, 0.05); 
+        color: var(--primary); padding: 10px 24px; border-radius: 99px;
+        text-decoration: none; font-size: 0.95rem; font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .tag-pill:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08); }
+
+    .quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .link-card {
+        display: block; background: var(--entry);
+        border: 1px solid rgba(0, 0, 0, 0.05); border-radius: 20px;
+        padding: 30px; text-align: center; text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;
+    }
+    .link-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06); }
+    .link-card h3 { margin: 0 0 8px 0; font-size: 1.2rem; font-weight: 600; color: var(--primary); }
+    .link-card p { margin: 0; font-size: 0.95rem; color: var(--secondary); opacity: 0.8; }
+    
+    /* Dark Mode Fixes */
+    :root[class~="dark"] .jp-ink { opacity: 0.25; color: #fff; } /* Đậm hơn cho cả dark mode */
+    :root[class~="dark"] .en-glass { background: rgba(0, 0, 0, 0); border-color: rgba(255,255,255, 0.2); }
+    :root[class~="dark"] .en-glass span { text-shadow: none; color: #fff; }
+    :root[class~="dark"] #searchInput, :root[class~="dark"] .tag-pill, :root[class~="dark"] .link-card {
+        background: var(--entry); border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+    }
+    .post-description { display: none; }
+</style>

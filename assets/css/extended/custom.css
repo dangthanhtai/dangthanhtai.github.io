@@ -1,66 +1,167 @@
-/* 1. Nhập Font chữ xịn từ Google */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
+/* =========================================
+   1. CORE: FONTS & COLORS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
 
-/* 2. Ép dùng Font mới */
 :root {
-    --font-family: 'Inter', sans-serif; /* Font cho nội dung thường */
-    --header-font: 'Lora', serif;       /* Font cho tiêu đề (nhìn rất nghệ) */
-    
-    /* 3. Đổi màu chủ đạo (Accent Color) */
-    /* Đây là màu Nâu Đất (giống Kira). Bạn có thể đổi mã hex khác nếu thích */
-    --primary: #211805; 
-    --secondary: #8b5a2b;
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Lora', serif;
+    --primary: #2e2e2e;       
+    --secondary: #a67c52;     /* Màu vàng nâu (Accent) */
+    --bg-dropdown: #ffffff;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.1); 
 }
 
-/* Áp dụng font cho tiêu đề bài viết */
-h1, h2, h3, h4, h5, h6, .site-title, .entry-title {
-    font-family: var(--header-font);
+/* Typography */
+body, .button { font-family: var(--font-sans); }
+h1, h2, h3, h4, h5, h6, .site-title, .entry-title { 
+    font-family: var(--font-serif); 
     font-weight: 600;
 }
 
-/* Tinh chỉnh lại bố cục cho thoáng hơn */
-.main {
-    max-width: 800px; /* Thu hẹp chiều ngang để mắt dễ đọc hơn */
-    margin: auto;
+/* =========================================
+   2. XỬ LÝ TRẠNG THÁI ACTIVE (GIỮ MÀU KHI CHỌN)
+   ========================================= */
+
+/* Tắt toàn bộ gạch chân và viền mặc định */
+.header .menu li a,
+.header .menu li.active > a,
+.header .menu li span {
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    background: none !important;
 }
 
-/* Làm đẹp cho phần Profile ở trang chủ */
-.first-entry {
-    background: none !important; /* Bỏ khung viền mặc định */
-    text-align: center; /* Căn giữa như poster */
+/* Ẩn các đường kẻ giả (nếu có) */
+.header .menu li a::after, .header .menu li.active > a::after {
+    display: none !important;
 }
 
-.entry-header h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
+/* 🔥 QUAN TRỌNG: GIỮ MÀU CHO TAB ĐANG CHỌN 🔥 */
+/* Hugo tự thêm class 'active' vào thẻ li của trang hiện tại. */
+/* Đoạn này bắt buộc chữ đổi màu vàng và giữ nguyên như vậy. */
+.header .menu li.active > a {
+    color: var(--secondary) !important; /* Màu vàng nâu */
+    font-weight: 700 !important;        /* In đậm hơn để nổi bật */
 }
 
-/* Hiệu ứng đường gạch chân mờ ảo khi di chuột vào link */
-a {
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .3s;
-}
-a:hover {
-    background-size: 100% 1px;
-}
-/* Tùy chỉnh ảnh đại diện (Profile Image) */
-.first-entry .entry-header img {
-    border-radius: 50%; /* Bo tròn ảnh 100% */
-    width: 150px;       /* Kích thước ảnh (Bạn có thể tăng giảm tùy ý) */
-    height: 150px;      /* Giữ chiều cao bằng chiều rộng để ảnh tròn đều */
-    object-fit: cover;  /* Đảm bảo ảnh không bị méo nếu ảnh gốc không vuông */
-    margin-bottom: 20px; /* Tạo khoảng cách với tiêu đề bên dưới */
-    border: 3px solid var(--primary); /* Thêm viền mỏng màu nâu cho nổi bật */
+/* Màu khi di chuột vào (Hover) */
+.header .menu li a:hover,
+.header .menu li:hover > a {
+    color: var(--secondary) !important;
 }
 
-/* Căn giữa toàn bộ khối profile */
-.first-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* =========================================
+   3. MENU DROPDOWN (XẾP DỌC)
+   ========================================= */
+.header, .nav, .nav .menu { overflow: visible !important; }
+
+.menu li {
+    position: relative;
+    display: inline-block;
+}
+
+/* Khung Menu con */
+.menu .menu-sub {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    
+    background: var(--bg-dropdown);
+    min-width: 200px; 
+    padding: 10px 0;
+    
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
+    border: none;
+    z-index: 9999;
+}
+
+/* Khi Hover vào cha -> Hiện con dạng cột dọc (Column) */
+.menu li:hover .menu-sub {
+    display: flex !important;       
+    flex-direction: column !important; /* Xếp dọc */
+    align-items: center;            
+    animation: fadeUp 0.2s ease-out;
+}
+
+/* Các mục con */
+.menu .menu-sub li {
+    display: block !important;      
+    width: 100% !important;         
+    margin: 0 !important;
+}
+
+.menu .menu-sub li a {
+    display: block !important;
+    width: 100%;
+    padding: 10px 0;
     text-align: center;
+    font-size: 14px;
+    color: var(--primary); /* Mặc định menu con màu đen */
+    white-space: nowrap; 
+}
+
+/* Hover vào menu con */
+.menu .menu-sub li a:hover {
+    color: var(--secondary) !important; /* Hover menu con cũng ra màu vàng */
+    background-color: transparent;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; margin-top: 10px; }
+    to { opacity: 1; margin-top: 0; }
+}
+
+/* =========================================
+   4. CÁC PHẦN KHÁC (UTILITIES)
+   ========================================= */
+.first-entry { background: none !important; text-align: center; }
+.first-entry .entry-header img {
+    border-radius: 50%;
+    width: 140px; height: 140px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.terms-tags li a, .button {
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color: var(--primary);
+    font-size: 13px;
+    border: none;
+}
+.terms-tags li a:hover, .button:hover {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+.archive-header header { background: none !important; }
+.post-entry .entry-header img { display: none; }
+#theme-toggle { margin-left: 15px; }
+.footer { opacity: 0.6; font-size: 12px; margin-top: 40px;}
+
+body { font-family: var(--font-sans), "Yu Mincho", serif; }
+/* =========================================
+   FIX LỖI DẤU GẠCH (PHƯƠNG ÁN MẠNH TAY)
+   ========================================= */
+
+/* 1. Ẩn toàn bộ danh sách ngôn ngữ bên cạnh mặt trăng */
+/* (Dấu gạch nằm trong này nên nó sẽ biến mất theo) */
+.lang-switch {
+    display: none !important;
+}
+
+/* 2. Ẩn luôn các thành phần separator lẻ tẻ nếu còn sót */
+.logo-switches .separator {
+    display: none !important;
+}
+
+/* 3. Đảm bảo nút mặt trăng không bị ảnh hưởng */
+#theme-toggle {
+    display: inline-block !important;
 }

@@ -1,0 +1,120 @@
+{{- /* theme-overrides/layouts/partials/header.html */ -}}
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            {{- $label_text := (site.Params.label.text | default site.Title) }}
+            {{- if site.Title }}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+                {{- if site.Params.label.icon }}
+                {{- $img := resources.Get site.Params.label.icon }}
+                {{- if $img }}
+                    {{- $filterable := slice "svg" "xml" }}
+                    {{- if (in $filterable $img.MediaType.SubType) }}
+                        {{- $img.Content | safeHTML }}
+                    {{- else }}
+                        {{- $img := $img.Resize "35x35" }}
+                        <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
+                            height="{{ $img.Height }}" width="{{ $img.Width }}">
+                    {{- end }}
+                {{- else }}
+                <img src="{{ site.Params.label.icon | absURL }}" alt="" aria-label="logo"
+                    height="35" width="35">
+                {{- end -}}
+                {{- end -}}
+                {{- $label_text -}}
+            </a>
+            {{- end }}
+            <div class="logo-switches">
+                {{- if (not site.Params.disableThemeToggle) }}
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                {{- end }}
+
+                {{- $lang := .Lang}}
+                {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
+                {{- with site.Home.AllTranslations }}
+                <ul class="lang-switch">
+                    {{- if $separator }}<li>|</li>{{ end }}
+                    {{- range . -}}
+                    {{- if ne $lang .Lang }}
+                    <li>
+                        <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
+                            aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
+                            {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
+                            {{- .Language.LanguageName | emojify -}}
+                            {{- else }}
+                            {{- .Lang | title -}}
+                            {{- end -}}
+                        </a>
+                    </li>
+                    {{- end -}}
+                    {{- end}}
+                </ul>
+                {{- end }}
+            </div>
+        </div>
+        
+        {{- $currentPage := . }}
+        <ul id="menu" class="menu">
+            {{- range site.Menus.main }}
+            
+            {{- /* 🔥 LOGIC MỚI: DÙNG ĐƯỜNG DẪN TƯƠNG ĐỐI ĐỂ SO SÁNH CHÍNH XÁC HƠN 🔥 */ -}}
+            {{- $menu_item_url := .URL }}
+            {{- $page_url := $currentPage.RelPermalink }}
+            {{- $active := or (eq $menu_item_url $page_url) (eq (printf "%s/" $menu_item_url) $page_url) }}
+            {{- $is_search := eq (site.GetPage .KeyName).Layout "search" }}
+
+            <li>
+                
+                <a href="{{ .URL | absLangURL }}"
+                {{- if $is_search }} accesskey="/" aria-label="Search" {{- end }}>
+                    <span {{- if $active }} class="active" {{- end }}>
+                        {{- .Pre }}
+                        {{- .Name | safeHTML -}} 
+                        {{ .Post -}}
+                        
+                        {{- /* KIỂM TRA NẾU CÓ MENU CON THÌ IN RA MŨI TÊN */ -}}
+                        {{- if .HasChildren }}
+                        <span style="font-size: 0.8em; margin-left: 5px;">▾</span>
+                        {{- end }}
+                    </span>
+                </a>
+
+                {{- /* LOGIC IN MENU CON (DROPDOWN) */ -}}
+                {{- if .HasChildren }}
+                <ul class="menu-sub">
+                    {{- range .Children }}
+                    <li>
+                        <a href="{{ .URL | absLangURL }}">
+                            {{ .Name }}
+                        </a>
+                    </li>
+                    {{- end }}
+                </ul>
+                {{- end }}
+                {{- /* KẾT THÚC LOGIC MENU CON */ -}}
+
+            </li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>

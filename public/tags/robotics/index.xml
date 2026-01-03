@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Robotics on タイの備忘録</title>
+    <link>http://localhost:1313/tags/robotics/</link>
+    <description>Recent content in Robotics on タイの備忘録</description>
+    <generator>Hugo -- 0.153.5</generator>
+    <language>vi</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/robotics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mobile Robot Project</title>
+      <link>http://localhost:1313/projects/robot/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/robot/</guid>
+      <description>Quá trình thiết kế và lập trình Mobile Robot tự hành sử dụng vi điều khiển STM32F103, giải thuật PID</description>
+    </item>
+  </channel>
+</rss>

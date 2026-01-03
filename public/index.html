@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto" data-theme="light">
 
 <head>
 	<meta name="generator" content="Hugo 0.153.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>My Engineering Blog</title>
+<meta name="robots" content="index, follow">
+<title>タイの備忘録</title>
 
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="This blog shares knowledge, experience and projects of embedded and automotive">
+<meta name="author" content="Dang Thanh Tai">
 <link rel="canonical" href="http://localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36760299b0f715ef12b5e83b1278a64dda64dd66ab60f04ea4060460566d493f.css" integrity="sha256-NnYCmbD3Fe8Steg7EnimTdpk3WarYPBOpAYEYFZtST8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -20,6 +20,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="http://localhost:1313/index.json" title="json">
 <link rel="alternate" hreflang="en" href="http://localhost:1313/">
 <noscript>
     <style>
@@ -29,58 +30,43 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
 </noscript>
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="http://localhost:1313/">
+  <meta property="og:site_name" content="タイの備忘録">
+  <meta property="og:title" content="タイの備忘録">
+  <meta property="og:description" content="This blog shares knowledge, experience and projects of embedded and automotive">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="タイの備忘録">
+<meta name="twitter:description" content="This blog shares knowledge, experience and projects of embedded and automotive">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "タイの備忘録",
+  "url": "http://localhost:1313/",
+  "description": "This blog shares knowledge, experience and projects of embedded and automotive",
+  "logo": "http://localhost:1313/favicon.ico",
+  "sameAs": [
+      "https://github.com/dangthanhtai", "https://linkedin.com/in/dangthanhtai", "https://www.facebook.com/dangthanhtai.369132"
+  ]
+}
 </script>
 </head>
 <body class="list" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Engineering Blog (Alt + H)">My Engineering Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="タイの備忘録 (Alt + H)">タイの備忘録</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -100,31 +86,179 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
+
+            <li>
+                
+                <a href="http://localhost:1313/projects/">
+                    <span>PROJECTS
+                        <span style="font-size: 0.8em; margin-left: 5px;">▾</span>
+                    </span>
+                </a>
+                <ul class="menu-sub">
+                    <li>
+                        <a href="http://localhost:1313/projects/robot/">
+                            Mobile Robot
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Autonomous Car
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            LED Matrix Game
+                        </a>
+                    </li>
+                </ul></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>NOTES
+                        <span style="font-size: 0.8em; margin-left: 5px;">▾</span>
+                    </span>
+                </a>
+                <ul class="menu-sub">
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Embedded
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Mobile Robot
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Linux
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Algorithms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/notes/autosar/">
+                            Automotive
+                        </a>
+                    </li>
+                </ul></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>日本語
+                    </span>
+                </a></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>ABOUT ME
+                    </span>
+                </a></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/search/" accesskey="/" aria-label="Search">
+                    <span>    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    
+                    </span>
+                </a></li>
         </ul>
     </nav>
-</header>
-<main class="main"> 
+</header><main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>タイの備忘録 - ごゆっくりどうぞ</h1>
+    </header>
+    <div class="entry-content">
+        This blog shares knowledge, experience and projects of embedded and automotive
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+    <a href="https://github.com/dangthanhtai" target="_blank" rel="noopener noreferrer me"
+        title="Github">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="https://linkedin.com/in/dangthanhtai" target="_blank" rel="noopener noreferrer me"
+        title="Linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/dangthanhtai.369132" target="_blank" rel="noopener noreferrer me"
+        title="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+    </a>
+</div>
 
-<article class="first-entry"> 
+    </footer>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Chào thế giới! Tôi là Kỹ sư Nhúng
+    <h2 class="entry-hint-parent">Tổng quan về AUTOSAR - Tiêu chuẩn &#39;vàng&#39; của ngành Automotive
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Giải mã kiến trúc AUTOSAR (Classic Platform), tại sao nó lại quan trọng và cách nó thay đổi tư duy lập trình nhúng truyền thống.</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-01-03 15:00:00 +0700 +07'>January 3, 2026</span>&nbsp;·&nbsp;<span>Dang Thanh Tai</span></footer>
+  <a class="entry-link" aria-label="post link to Tổng quan về AUTOSAR - Tiêu chuẩn &#39;vàng&#39; của ngành Automotive" href="http://localhost:1313/notes/autosar/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mobile Robot Project
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Quá trình thiết kế và lập trình Mobile Robot tự hành sử dụng vi điều khiển STM32F103, giải thuật PID</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-01-03 00:00:00 +0000 UTC'>January 3, 2026</span>&nbsp;·&nbsp;<span>Dang Thanh Tai</span></footer>
+  <a class="entry-link" aria-label="post link to Mobile Robot Project" href="http://localhost:1313/projects/robot/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">First Post
     </h2>
   </header>
   <div class="entry-content">
     <p>Xin chào! Đây là bài viết đầu tiên trên blog kỹ thuật của tôi.
 Mục tiêu của tôi: Xây dựng blog bằng Hugo Chia sẻ về dự án xe tự hành Viết về STM32 và Embedded System Dưới đây là một đoạn code C mẫu (để test giao diện):
-#include &lt;stdio.h&gt; int main() { printf(&#34;Hello, Embedded World!&#34;); return 0; } </p>
+1 2 3 4 5 6 #include &lt;stdio.h&gt; int main() { printf(&#34;Hello, Embedded World!&#34;); return 0; } </p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-01 00:00:00 +0700 +07'>January 1, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Chào thế giới! Tôi là Kỹ sư Nhúng" href="http://localhost:1313/posts/hello-world/"></a>
+  <footer class="entry-footer"><span title='2025-01-01 00:00:00 +0700 +07'>January 1, 2025</span>&nbsp;·&nbsp;<span>Dang Thanh Tai</span></footer>
+  <a class="entry-link" aria-label="post link to First Post" href="http://localhost:1313/posts/hello-world/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My Engineering Blog</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">タイの備忘録</a></span> · 
 
     <span>
         Powered by

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto" data-theme="light">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Posts | My Engineering Blog</title>
+<meta name="robots" content="index, follow">
+<title>Posts | タイの備忘録</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - My Engineering Blog">
-<meta name="author" content="">
+<meta name="description" content="Posts - タイの備忘録">
+<meta name="author" content="Dang Thanh Tai">
 <link rel="canonical" href="http://localhost:1313/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36760299b0f715ef12b5e83b1278a64dda64dd66ab60f04ea4060460566d493f.css" integrity="sha256-NnYCmbD3Fe8Steg7EnimTdpk3WarYPBOpAYEYFZtST8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -28,58 +28,45 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
 </noscript>
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="タイの備忘録">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="This blog shares knowledge, experience and projects of embedded and automotive">
+  <meta property="og:locale" content="vi">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="This blog shares knowledge, experience and projects of embedded and automotive">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }
+  ]
+}
 </script>
 </head>
 <body class="list" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Engineering Blog (Alt + H)">My Engineering Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="タイの備忘録 (Alt + H)">タイの備忘録</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -99,14 +86,100 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
+
+            <li>
+                
+                <a href="http://localhost:1313/projects/">
+                    <span>PROJECTS
+                        <span style="font-size: 0.8em; margin-left: 5px;">▾</span>
+                    </span>
+                </a>
+                <ul class="menu-sub">
+                    <li>
+                        <a href="http://localhost:1313/projects/robot/">
+                            Mobile Robot
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Autonomous Car
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            LED Matrix Game
+                        </a>
+                    </li>
+                </ul></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>NOTES
+                        <span style="font-size: 0.8em; margin-left: 5px;">▾</span>
+                    </span>
+                </a>
+                <ul class="menu-sub">
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Embedded
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Mobile Robot
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Linux
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/">
+                            Algorithms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:1313/notes/autosar/">
+                            Automotive
+                        </a>
+                    </li>
+                </ul></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>日本語
+                    </span>
+                </a></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/">
+                    <span>ABOUT ME
+                    </span>
+                </a></li>
+
+            <li>
+                
+                <a href="http://localhost:1313/search/" accesskey="/" aria-label="Search">
+                    <span>    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    
+                    </span>
+                </a></li>
         </ul>
     </nav>
-</header>
-<main class="main"> 
-<header class="page-header">
+</header><main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Trang chủ</a></div>
   <h1>
     Posts
   </h1>
@@ -114,21 +187,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Chào thế giới! Tôi là Kỹ sư Nhúng
+    <h2 class="entry-hint-parent">First Post
     </h2>
   </header>
   <div class="entry-content">
     <p>Xin chào! Đây là bài viết đầu tiên trên blog kỹ thuật của tôi.
 Mục tiêu của tôi: Xây dựng blog bằng Hugo Chia sẻ về dự án xe tự hành Viết về STM32 và Embedded System Dưới đây là một đoạn code C mẫu (để test giao diện):
-#include &lt;stdio.h&gt; int main() { printf(&#34;Hello, Embedded World!&#34;); return 0; } </p>
+1 2 3 4 5 6 #include &lt;stdio.h&gt; int main() { printf(&#34;Hello, Embedded World!&#34;); return 0; } </p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-01 00:00:00 +0700 +07'>January 1, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Chào thế giới! Tôi là Kỹ sư Nhúng" href="http://localhost:1313/posts/hello-world/"></a>
+  <footer class="entry-footer"><span title='2025-01-01 00:00:00 +0700 +07'>January 1, 2025</span>&nbsp;·&nbsp;<span>Dang Thanh Tai</span></footer>
+  <a class="entry-link" aria-label="post link to First Post" href="http://localhost:1313/posts/hello-world/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My Engineering Blog</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">タイの備忘録</a></span> · 
 
     <span>
         Powered by

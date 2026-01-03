@@ -1,6 +1,6 @@
 baseURL = 'https://dangthanhtai.github.io/'
 languageCode = 'vi'
-title = 'Embedded Engineer'
+title = 'タイの備忘録'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
@@ -8,8 +8,11 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Cấu hình màu sắc Code (Monokai là chuẩn bài cho dân code rồi!)
+# --- QUAN TRỌNG: Cấu hình cho phép dùng HTML trong bài viết ---
 [markup]
+  [markup.goldmark.renderer]
+    unsafe = true  # <--- DÒNG NÀY GIÚP GIAO DIỆN SEARCH ĐẸP LUNG LINH & DÙNG HTML TRONG MARKDOWN
+  
   [markup.highlight]
     anchorLineNos = false
     codeFences = true
@@ -18,13 +21,26 @@ buildExpired = false
     noClasses = false
     style = 'monokai'
 
-# Cấu hình các tính năng giao diện
+# --- QUAN TRỌNG: Cấu hình để thanh tìm kiếm hoạt động ---
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # <--- THIẾU DÒNG NÀY LÀ KHÔNG TÌM ĐƯỢC GÌ ĐÂU
+
+# --- CẤU HÌNH GIAO DIỆN (PARAMS) ---
 [params]
   env = "production"
-  title = "Kỹ sư Nhúng"
-  description = "This blog shares knowledge, experience and projects of embedded and automotive" # Sửa lỗi typo: experrience -> experience
+  title = "Embedded"
+  # ... các dòng cũ giữ nguyên ...
+
+  # --- THÊM DÒNG NÀY ĐỂ SỬA FOOTER ---
+  # Dùng HTML để chèn link tên bạn vào Copyright
+  copyright = "&copy; 2026 <a href='https://github.com/dangthanhtai'>Dang Thanh Tai</a>. All rights reserved."
+
+  # ... các dòng cũ giữ nguyên ...
+
+
+  description = "This blog shares knowledge, experience and projects of embedded and automotive" 
   author = "Dang Thanh Tai"
-  
+  mainSections = ["posts", "projects", "notes"]
   defaultTheme = "light" 
   ShowShareButtons = true
   ShowBreadCrumbs = true
@@ -35,9 +51,8 @@ buildExpired = false
   [params.homeInfoParams]
     imageUrl = "/images/profile.jpg"
     imageTitle = "Ảnh profile của Tài"
-    # Dùng \n để xuống dòng, nhìn rất thơ
-    Title = "タイの備忘録 \n ごゆっくりどうぞ" 
-    Content = "Chào mừng đến với ghi chép của một Kỹ sư Nhúng. Tại đây mình chia sẻ về **STM32**, **RTOS**, **Linux** và hành trình chế tạo **Xe tự hành**."
+    Title = "タイの備忘録 - ごゆっくりどうぞ" 
+    Content = "This blog shares knowledge, experience and projects of embedded and automotive"
 
   # Các icon mạng xã hội
   [[params.socialIcons]]
@@ -48,35 +63,105 @@ buildExpired = false
     url = "https://linkedin.com/in/dangthanhtai"
   [[params.socialIcons]]
     name = "facebook"
-    url = "https://facebook.com/dangthanhtai"
+    url = "https://www.facebook.com/dangthanhtai.369132" 
 
-# --- PHẦN MENU ĐÃ ĐƯỢC GỘP VÀ SẮP XẾP LẠI ---
-[menu]
-  # 1. Các bộ lọc ngôn ngữ (Ưu tiên hiển thị trước)
-  [[menu.main]]
-    name = "Tiếng Việt 🇻🇳"
-    url = "/categories/vietnamese/"
-    weight = 10
+# --- PHẦN MENU ---
+# --- MENU CHA: PROJECTS ---
+[[menu.main]]
+  identifier = "projects"  # Đây là ID của menu cha
+  name = "PROJECTS"
+  url = "/projects/"
+  weight = 10
 
-  [[menu.main]]
-    name = "English 🇬🇧"
-    url = "/categories/english/"
-    weight = 20
+# --- CÁC MENU CON (DROPDOWN) ---
+# Mục con 1
+[[menu.main]]
+  identifier = "proj_robot"
+  name = "Mobile Robot"       # Tên hiển thị trong Dropdown
+  url = "/projects/robot/"    # Đường dẫn đến bài viết dự án
+  parent = "projects"         # 🔥 QUAN TRỌNG: Khai báo cha là "projects"
+  weight = 11
 
-  [[menu.main]]
-    name = "日本語 🇯🇵"
-    url = "/categories/japanese/"
-    weight = 30
+# Mục con 2
+[[menu.main]]
+  identifier = "proj_car"
+  name = "Autonomous Car"
+  url = "#"
+  parent = "projects"
+  weight = 12
 
-  # 2. Các mục chức năng (Hiển thị sau)
-  [[menu.main]]
-    identifier = "archives"
-    name = "Lưu trữ"
-    url = "/archives/"
-    weight = 40
-  
-  [[menu.main]]
+# Mục con 3
+[[menu.main]]
+  identifier = "proj_led"
+  name = "LED Matrix Game"
+  url = "#"
+  parent = "projects"
+  weight = 13
+
+[[menu.main]]
+  identifier = "notes"
+  name = "NOTES"
+  url = "#"
+  weight = 20
+
+# --- CÁC MỤC CON CỦA NOTES ---
+[[menu.main]]
+  identifier = "stm32"
+  name = "Embedded"
+  url = "#"
+  parent = "notes"
+  weight = 21
+
+[[menu.main]]
+  identifier = "robot"
+  name = "Mobile Robot"
+  url = "#"
+  parent = "notes"
+  weight = 22
+
+[[menu.main]]
+  identifier = "linux"
+  name = "Linux"
+  url = "#"
+  parent = "notes"
+  weight = 23
+
+[[menu.main]]
+  identifier = "algorithms"
+  name = "Algorithms"
+  url = "#"
+  parent = "notes"
+  weight = 24
+
+[[menu.main]]
+  identifier = "automotive"
+  name = "Automotive"
+  url = "/notes/Autosar/"
+  parent = "notes"
+  weight = 25
+
+# --- CÁC MỤC KHÁC ---
+[[menu.main]]
+  identifier = "nihongo"
+  name = "日本語"
+  url = "#"
+  weight = 30
+
+[[menu.main]]
+  identifier = "about"
+  name = "ABOUT ME"
+  url = "#"
+  weight = 40
+
+# --- NÚT TÌM KIẾM (SEARCH) ---
+[[menu.main]]
     identifier = "search"
-    name = "Tìm kiếm" # PaperMod cần tạo file search.md để dùng cái này
+    # Dùng 3 dấu ngoặc kép để chèn mã HTML/SVG nhiều dòng trong TOML
+    name = """
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    """
     url = "/search/"
     weight = 50
